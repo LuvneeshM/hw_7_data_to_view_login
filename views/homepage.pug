@@ -1,0 +1,33 @@
+html
+	head 
+		style(type="text/css").
+			h1{
+				color: blue;
+				text-align: center;
+			}
+			a:hover{
+				color: hotpink;
+			}
+			.error{
+				color: red;
+			}
+	body
+		h1 SearchEm - CS Curriculm Engine
+		form(method="POST")
+			.form-group
+				label(for="tosearch")
+				input.form-control(type="text", name="tosearch", placeholder="Enter your query")
+				button.btn.btn-primary(type="submit") Search
+		if pageType == "error"
+			p ⚠There was an error when trying to perform the search.
+			p Make sure your api key is valid.
+		if pageType == "no_res"
+			p.error ⚠Your search returned no results. Please try to search for something else.
+		if pageType == "searched"
+			p You searched for #{tosearch}
+			p Here are the top 5 results
+			ul
+				for r in res
+					a(href=r.link)= r.title
+					br 
+					br

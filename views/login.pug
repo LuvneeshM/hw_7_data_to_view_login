@@ -1,0 +1,19 @@
+html
+	head
+
+	body
+		h1 CS Curriculm Engine
+		h2 Login
+		form(method="POST")
+			.form-group
+				label(for="username")
+				input.form-control(type="text", name="username", placeholder="Enter your username")
+				br
+				label(for="password")
+				input.form-contrl(type="text", name="password", placeholder="Enter your password")
+				br
+				button.btn.btn-primary(type="submit", formaction="/login") Login
+			.form-group
+				button.btn.btn-primary(type="submit", formaction="/register") Register
+		if err == true
+			p Error while trying to log in. Either user does not exist or login/password combination is incorrect.
